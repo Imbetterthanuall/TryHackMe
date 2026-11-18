@@ -16,3 +16,8 @@ Le <Title> de la page HTML est Smag, puisque nous somme sur TryHackMe, la fin es
 ```bash
 gobuster dir -u http://smag.thm/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -t 64
 ```
+On découvre /mail et il y a un fichier a analyser avec wireshark pour y avoir un username et password
+le fichier wireshark montre une url entier d'ou est-ce que les identifiants ont été utilisé http://development.smag.thm/login.php
+Une fois connecter nous avons accès a un terminal web, ideal pour faire un reverse shell ou bind shell ( j'ai utiliser le bind shell )
+Une fois connecter a la machine via mon terminal je le stabilise avec python3 
+
