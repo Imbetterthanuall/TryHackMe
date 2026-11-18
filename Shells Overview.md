@@ -65,4 +65,17 @@ nc -nv IP_TARGET PORT_TARGET
 * `-v` (*verbose*) active le **mode verbose** et donc affichera d'avantage d'informations
 * `IP_TARGET` se connecte à l'addresse IP de la cible
 * `PORT_TARGET` se conncte au port d'écoute de la cible
-  
+
+### Autres outils d'écoutes
+##### Rlwrap
+```bash
+rlwrap nc -lvnp PORT
+```
+`rlwrap nc` permet d'utiliser NetCat avec ces options habituelles mais d'en plus pouvoir utiliser les flèches pour naviguer dans les précédentes commandes
+#### Ncat
+```bash
+ncat -lvnp 4444
+```
+Ncat est une version améliorée de Netcat, distribuée par le projet Nmap. Elle propose des fonctionnalités supplémentaires, telles que le chiffrement (SSL) avec `--ssl`
+#### Socat
+A complété
