@@ -24,3 +24,28 @@ Pour l'exemple, l'appareil avec l'IP **192.168.1._66_** veut communiquer avec l'
 1. **ARP Request** : **192.168.1._66_** va envoyé un paquet **ARP Request** demandant qui est l'hôte de **192.168.1._243_**.  
    Le paquet ARP Request est envoyé a partir de son MAC ( car le message de réponse doit lui être renvoyer ) vers l'addresse de **broadcast MAC**(**ff:ff:ff:ff:ff:ff**) pour crier à tout les MAC/appareils du réseau.
 2. **ARP Reply** : L'appareil avec l'IP **192.168.1._243_** va donc répondre à la demande, il va utilisé le MAC de **192.168.1._66_** qui se trouvait dans le **ARP Request** pour lui répondre seulement à lui en y donnant son addresse MAC personnel
+
+## ICMP (*Internet Control Message Protocol*)
+### Description
+**ICMP** est un protocol utilisé pour faire des diagnostique réseau et/ou des rapport d'erreurs. Deux commandes sont très connus car ils utilisent le protocol ICMP à des fins précises : **ping** et **traceroute**  
+### Ping 
+La commande `ping` sert à envoyer une requête ICMP (**ICMP Echo Request** *ICMP Type8*) vers un.e *Nom de domaine/IP* dans l'obtique d'obtenir un *pong* (**ICMP Echo Reply** *ICMP Type0*).  
+Lorsque nous recevons le *pong* de la machine distante, nous avons le nombre de miliseconde(**ms**) que la rêquete ping/pong à pris pour et les pertes de paquets. Ces informations servent à nous montrer si on peut communiqué avec une machine ( *ou internet tout simplement* ) et nous montres aussi la rapidité d'échange ( le ping ).  
+Il y a aussi le nombre de bytes envoyé qui peuvent nous dire si c'est une machine **Linux ( par défaut 56(84) bytes )** ou **Windows ( par défaut 32 bytes )**  
+#### Syntaxe
+```bash
+ping 8.8.8.8 -c 4
+```
+ * `ping 8.8.8.8` va envoyé un ping à l'IP **8.8.8.8**(*Le serveur DNS de Google*)
+     *En général on sait que 8.8.8.8 est actif, donc si on essaie d'y envoyé un ping c'est pour savoir si nous y avons accès et donc si nous somme connecté à internet*
+* `-c 4` (*-c = count*) Paramètre de la commande pour qu'elle s'arrête après avoir envoyé 4 paquet ICMP  
+
+### Traceroute
+`traceroute` est une commande qui permet de tracer la route qu'un paquet ICMP va faire pour atteindre un.e *Nom de domaine/IP*.  
+Cela permet d'analyser les IP des routeurs utilisé lors du routage 
+Par exemple lorsqu'un paquet à un **TTL**(*Time-To-Live*), il peut être défini à 12 ce qui veut dire qu'après avoir passer 12 routeurs, le 12e routeurs retournera une erreur d'excès de "temps"(*ICMP Time Exceeded message*).  
+**Remarque** : Time-To-Live désigne bien le nombre de routage accepter et non pas un temps en seconde ou autres unité de temps.
+#### Syntaxe
+```bash
+traceroute tryhackme.com
+```
