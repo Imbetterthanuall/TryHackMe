@@ -49,3 +49,17 @@ Par exemple lorsqu'un paquet à un **TTL**(*Time-To-Live*), il peut être défin
 ```bash
 traceroute tryhackme.com
 ```
+## NAT (*Network Address Translation*)
+#### Contexte
+Pour comprendre l'utilité du **NAT**, il faut d'abord revoir le problème que nous avons avec les IP ( notamment IPv4 puisque IPv6 règle ce problème mais n'est pas assez utilisé ).  
+Dans le monde nous avons des IP disponible de **0.0.0.0** à **254.255.255.255** ( Sans prendre en comptes les IP réserver ), ce qui nous donne 4 bloc de 8 octet (256 ** 4) ce qui donne approximativement 4Md d'address possible.  
+Cependant avec l'évolution d'internet, le nombre d'utilisateur qui a augmenter, les caméras qui doivent théoriquement aussi avoir leurs IP public pour être accessible, nous depassons facilement les 4Md d'appareils connecté simultanément.  
+Donc il a fallu trouver un moyen pour que une seul IP Public puisse servir à plusieurs appareils simultanément
+#### NAT, la solution à ça
+Le NAT est un protocole utilisé par les routeurs, il permet de faire en sorte que seule l'IP du routeur fera les requête sur internet et jamais les IP privé des appareils.  
+Pour ce faire, les appareils vont ouvrir un port d'écoute pour recevoir la réponse une fois la requête de retour sur le réseau et le routeur aura une table avec par exemple ( **196.168.1.24:5478** ), ensuite le routeur ouvrira un port réserver pour recevoir la réponse du site, une fois que le site aura remis la requête au routeur, le routeur va envoyé la réponse à l'IP privé à l'origine de la requête.
+Puisque un appareils peut ouvrir au maximum **65 535 ports**, un routeurs peut connecté au maximum 65 535 appareils en simultané à internet
+
+![Image illustrative][Image NAT]  
+
+[Image NAT]:https://cdn-images.tryhackme.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1719849362861.svg
