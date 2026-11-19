@@ -54,7 +54,7 @@ sqlmap is running, please wait..
 [*] ending @ 14:41:30 /2026-11-19/
 
 ```
-Pour les autres options, le mieux est de lire le [**manuel officiel**][Man]  
+Pour les autres options, le mieux est de lire le [**manuel officiel**][Man] ou de visiter de nouveau la room [**SQLMap: Basics**][LienTHM] 
 
 [LienTHM]:https://tryhackme.com/room/sqlmapthebasics
 [Man]:https://manpages.org/sqlmap
