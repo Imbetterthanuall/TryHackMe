@@ -57,7 +57,7 @@ Cependant avec l'évolution d'internet, le nombre d'utilisateur qui a augmenter,
 Donc il a fallu trouver un moyen pour que une seul IP Public puisse servir à plusieurs appareils simultanément
 #### NAT, la solution à ça
 Le NAT est un protocole utilisé par les routeurs, il permet de faire en sorte que seule l'IP du routeur fera les requête sur internet et jamais les IP privé des appareils.  
-Pour ce faire, les appareils vont ouvrir un port d'écoute pour recevoir la réponse une fois la requête de retour sur le réseau et le routeur aura une table avec par exemple ( **196.168.1.24:5478** ), ensuite le routeur ouvrira un port réserver pour recevoir la réponse du site, une fois que le site aura remis la requête au routeur, le routeur va envoyé la réponse à l'IP privé à l'origine de la requête.
+Pour ce faire, les appareils vont ouvrir un port d'écoute pour recevoir la réponse une fois la requête de retour sur le réseau et le routeur aura une table avec par exemple ( **196.168.1.24:5478** ), ensuite le routeur ouvrira un port réserver pour recevoir la réponse du site, une fois que le site aura remis la requête au routeur, le routeur va envoyé la réponse à l'IP privé à l'origine de la requête.  
 Puisque un appareils peut ouvrir au maximum **65 535 ports**, un routeurs peut connecté au maximum 65 535 appareils en simultané à internet
 
 ![Image illustrative][Image NAT]  
